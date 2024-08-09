@@ -1,0 +1,43 @@
+# Angular built output
+/dist
+/out-tsc
+# Angular cache
+.angular/cache/
+# Dependencies
+/node_modules
+# IDEs and editors
+/.idea
+/.vscode
+*.sublime-project
+*.sublime-workspace
+# Log files
+npm-debug.log
+npm-debug.log
+npm-error.log
+# Environment files
+/.env
+/.env.*
+# System files
+.DS_Store
+Thumbs.db
+# TypeScript
+*.tsbuildinfo
+# Temporary files
+*.tmp
+*.temp
+# Local environment files
+*.local
+# MacOS Finder
+.AppleDouble
+.LSOverride
+# Windows system files
+Desktop.ini
+$RECYCLE.BIN/
+# VS Code settings
+.vscode/
+# JetBrains IDEs
+.idea/
+# Node.js
+node_modules/
+package-lock.json
+npm.lock

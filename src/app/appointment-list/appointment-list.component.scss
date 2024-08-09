@@ -1,0 +1,129 @@
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  grid-template-rows: repeat(5, 1fr); 
+}
+
+.calendar-cell {
+  padding: 10px 2px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  height: 200px; 
+  position: relative; 
+  background: rgba(244,244,244,0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 5px;
+  border-radius: 10px;
+  margin: 5px;
+  border: 1px solid #dddd;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+}
+
+.event_list {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* width */
+.event_list::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+ .event_list::-webkit-scrollbar-track {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.event_list::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 10px;
+}
+
+
+.outside-month {
+  color: #ccc; 
+}
+
+.date {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.plus-button {
+  width: 50px; 
+  height: 50px;
+  border-radius:50%; 
+  background-color:black; 
+  color: #fff; 
+  font-size: 24px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; 
+  border: none; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed ; 
+   z-index: 999 ;
+   bottom: 5%;
+   right: 5%;  
+
+  mat-icon {
+    font-size: 24px; 
+  }
+
+  &:hover {
+    background-color:black; 
+  }
+}
+
+.day_label {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.delete_btn {
+  padding: 0;
+  height: 20px;
+  width: unset;
+  color: red;
+
+  mat-icon {
+    font-size: 20px;
+  }
+
+}

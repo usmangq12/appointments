@@ -1,0 +1,38 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <div *ngFor="let day of weekDays" class="day_label">{{ day }}</div>
+  </div>
+  <div class="calendar-grid" cdkDropListGroup>
+    <div *ngFor="let day of monthDays"
+         [ngClass]="{ 'calendar-cell': true, 'outside-month': day.isOutsideMonth }"
+         cdkDropList
+         [cdkDropListData]="(getEvents(day.date, day.month, day.year) | async) || []"
+         (cdkDropListDropped)="onDrop($event)"
+         [attr.data-date]="day.date"
+         [attr.data-month]="day.month"
+         [attr.data-year]="day.year">
+      <div class="header">
+        <div class="date">{{ day.date }}</div>
+      </div>
+      <div class="event_list">
+      <div *ngIf="day.date > 0 && (getEvents(day.date, day.month, day.year) | async)?.length" >
+        <div *ngFor="let event of (getEvents(day.date, day.month, day.year) | async)"
+             cdkDrag
+             [cdkDragData]="event"
+             class="event">
+          <div>
+            {{ event.eventTitle }}
+          </div>
+          <button mat-icon-button (click)="deleteEvent(day.date, event.id)" class="delete_btn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  <button class="plus-button" mat-icon-button (click)="openEventDialogForToday()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

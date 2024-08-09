@@ -1,0 +1,34 @@
+<mat-dialog-content class="mat-typography event_dialog">
+  <h2 mat-dialog-title>Add Event</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: '1rem';
+      "
+    >
+      <mat-form-field appearance="fill">
+        <mat-label>Event Title</mat-label>
+        <input matInput formControlName="eventTitle" required />
+        <mat-error *ngIf="form.get('eventTitle')?.hasError('required')"
+          >Event title is required.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Event Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="eventDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('eventDate')?.hasError('required')">Event date is required.</mat-error>
+      </mat-form-field>      
+
+      <mat-dialog-actions>
+        <button mat-flat-button (click)="onCancel()" class="cancel_btn">Cancel</button>
+        <button mat-flat-button type="submit" class="add_btn">Add</button>
+      </mat-dialog-actions>
+    </div>
+  </form>
+</mat-dialog-content>
